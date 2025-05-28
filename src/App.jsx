@@ -21,7 +21,8 @@ function Header() {
     );
 }
 
-function CoreConcepts({ img, title, description }) {
+function CoreConcepts({ img, title = "Title", description }) {
+    // Default title to "Title" if not provided
     // Destructuring props to extract img, title, and description
     return (
         <li>
