@@ -1,3 +1,5 @@
+import "./CoreConcepts.css";
+
 export default function CoreConcepts({ img, title = "Title", description }) {
     // Default title to "Title" if not provided
     // Destructuring props to extract img, title, and description
