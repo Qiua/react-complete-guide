@@ -5,10 +5,12 @@ import CoreConcepts from "./components/CoreConcepts";
 import TabButton from "./components/TabButton";
 
 function App() {
-    function handleClickTab(event) {
-        event.preventDefault();
-        console.log("Tab clicked:", event.target.textContent);
+    function handleClickTab(selectedButton) {
+        // This function will be called when a tab is clicked.
+        // You can use the `selectedButton` parameter to determine which tab was clicked.
+        console.log(`Tab clicked: ${selectedButton}`);
     }
+
     return (
         <div>
             <Header /> {/* First component! */}
@@ -25,12 +27,20 @@ function App() {
                 <section id="examples">
                     <h2>Examples</h2>
                     <menu>
-                        <TabButton onSelect={handleClickTab}>
+                        <TabButton
+                            onSelect={() => handleClickTab("components")}
+                        >
                             Components
                         </TabButton>
-                        <TabButton onSelect={handleClickTab}>JSX</TabButton>
-                        <TabButton onSelect={handleClickTab}>Props</TabButton>
-                        <TabButton onSelect={handleClickTab}>State</TabButton>
+                        <TabButton onSelect={() => handleClickTab("jsx")}>
+                            JSX
+                        </TabButton>
+                        <TabButton onSelect={() => handleClickTab("props")}>
+                            Props
+                        </TabButton>
+                        <TabButton onSelect={() => handleClickTab("state")}>
+                            State
+                        </TabButton>
                     </menu>
                 </section>
             </main>
