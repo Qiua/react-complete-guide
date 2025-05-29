@@ -1,12 +1,11 @@
-export default function TabButton({ children, label, isActive, onClick }) {
+export default function TabButton({ children, label, isActive, onSelect }) {
     return (
         <li>
             <button
                 className={`tab-button ${isActive ? "active" : ""}`}
-                onClick={onClick}
+                onClick={onSelect}
                 aria-label={label}
             >
-                {label}
                 {children}
             </button>
         </li>

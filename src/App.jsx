@@ -5,6 +5,10 @@ import CoreConcepts from "./components/CoreConcepts";
 import TabButton from "./components/TabButton";
 
 function App() {
+    function handleClickTab(event) {
+        event.preventDefault();
+        console.log("Tab clicked:", event.target.textContent);
+    }
     return (
         <div>
             <Header /> {/* First component! */}
@@ -21,10 +25,12 @@ function App() {
                 <section id="examples">
                     <h2>Examples</h2>
                     <menu>
-                        <TabButton>Components</TabButton>
-                        <TabButton>JSX</TabButton>
-                        <TabButton>Props</TabButton>
-                        <TabButton>State</TabButton>
+                        <TabButton onSelect={handleClickTab}>
+                            Components
+                        </TabButton>
+                        <TabButton onSelect={handleClickTab}>JSX</TabButton>
+                        <TabButton onSelect={handleClickTab}>Props</TabButton>
+                        <TabButton onSelect={handleClickTab}>State</TabButton>
                     </menu>
                 </section>
             </main>
