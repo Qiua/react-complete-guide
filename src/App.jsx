@@ -7,7 +7,7 @@ import TabButton from './components/TabButton'
 
 function App() {
   // State to manage the selected tab
-  const [activeTab, setActiveTab] = useState('components')
+  const [activeTab, setActiveTab] = useState()
   // activeTab is the state variable that holds the currently state of the active tab.
   // setActiveTab is the function to update the activeTab state.
 
@@ -16,6 +16,21 @@ function App() {
     // You can use the `selectedButton` parameter to determine which tab was clicked.
     console.log(`Tab clicked: ${selectedButton}`)
     setActiveTab(selectedButton) // Update the selected tab
+  }
+
+  // If a tab is selected, we will display the corresponding content.
+  let activeTabContent = <p>Please select a topic.</p>
+
+  if (activeTab) {
+    activeTabContent = (
+      <div>
+        <h3>{EXAMPLES[activeTab].title}</h3>
+        <p>{EXAMPLES[activeTab].description}</p>
+        <pre>
+          <code>{EXAMPLES[activeTab].code}</code>
+        </pre>
+      </div>
+    )
   }
 
   return (
@@ -39,13 +54,7 @@ function App() {
             <TabButton onSelect={() => handleClickTab('props')}>Props</TabButton>
             <TabButton onSelect={() => handleClickTab('state')}>State</TabButton>
           </menu>
-          <div id='tab-content'>
-            <h3>{EXAMPLES[activeTab].title}</h3>
-            <p>{EXAMPLES[activeTab].description}</p>
-            <pre>
-              <code>{EXAMPLES[activeTab].code}</code>
-            </pre>
-          </div>
+          <div id='tab-content'>{activeTabContent}</div>
         </section>
       </main>
     </div>
