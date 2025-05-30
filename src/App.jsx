@@ -1,65 +1,55 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import { CORE_CONCEPTS, EXAMPLES } from "./data";
-import Header from "./components/Header/Header";
-import CoreConcepts from "./components/CoreConcepts";
-import TabButton from "./components/TabButton";
+import { CORE_CONCEPTS, EXAMPLES } from './data'
+import Header from './components/Header/Header'
+import CoreConcepts from './components/CoreConcepts'
+import TabButton from './components/TabButton'
 
 function App() {
-    // State to manage the selected tab
-    const [activeTab, setActiveTab] = useState("components");
-    // activeTab is the state variable that holds the currently state of the active tab.
-    // setActiveTab is the function to update the activeTab state.
+  // State to manage the selected tab
+  const [activeTab, setActiveTab] = useState('components')
+  // activeTab is the state variable that holds the currently state of the active tab.
+  // setActiveTab is the function to update the activeTab state.
 
-    function handleClickTab(selectedButton) {
-        // This function will be called when a tab is clicked.
-        // You can use the `selectedButton` parameter to determine which tab was clicked.
-        console.log(`Tab clicked: ${selectedButton}`);
-        setActiveTab(selectedButton); // Update the selected tab
-    }
+  function handleClickTab(selectedButton) {
+    // This function will be called when a tab is clicked.
+    // You can use the `selectedButton` parameter to determine which tab was clicked.
+    console.log(`Tab clicked: ${selectedButton}`)
+    setActiveTab(selectedButton) // Update the selected tab
+  }
 
-    return (
-        <div>
-            <Header /> {/* First component! */}
-            <main>
-                <section id="core-concepts">
-                    <h2>Time to get started!</h2>
-                    <ul>
-                        <CoreConcepts {...CORE_CONCEPTS[0]} />
-                        <CoreConcepts {...CORE_CONCEPTS[1]} />
-                        <CoreConcepts {...CORE_CONCEPTS[2]} />
-                        <CoreConcepts {...CORE_CONCEPTS[3]} />
-                    </ul>
-                </section>
-                <section id="examples">
-                    <h2>Examples</h2>
-                    <menu>
-                        <TabButton
-                            onSelect={() => handleClickTab("components")}
-                        >
-                            Components
-                        </TabButton>
-                        <TabButton onSelect={() => handleClickTab("jsx")}>
-                            JSX
-                        </TabButton>
-                        <TabButton onSelect={() => handleClickTab("props")}>
-                            Props
-                        </TabButton>
-                        <TabButton onSelect={() => handleClickTab("state")}>
-                            State
-                        </TabButton>
-                    </menu>
-                    <div id="tab-content">
-                        <h3>{EXAMPLES[activeTab].title}</h3>
-                        <p>{EXAMPLES[activeTab].description}</p>
-                        <pre>
-                            <code>{EXAMPLES[activeTab].code}</code>
-                        </pre>
-                    </div>
-                </section>
-            </main>
-        </div>
-    );
+  return (
+    <div>
+      <Header /> {/* First component! */}
+      <main>
+        <section id='core-concepts'>
+          <h2>Time to get started!</h2>
+          <ul>
+            <CoreConcepts {...CORE_CONCEPTS[0]} />
+            <CoreConcepts {...CORE_CONCEPTS[1]} />
+            <CoreConcepts {...CORE_CONCEPTS[2]} />
+            <CoreConcepts {...CORE_CONCEPTS[3]} />
+          </ul>
+        </section>
+        <section id='examples'>
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={() => handleClickTab('components')}>Components</TabButton>
+            <TabButton onSelect={() => handleClickTab('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleClickTab('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleClickTab('state')}>State</TabButton>
+          </menu>
+          <div id='tab-content'>
+            <h3>{EXAMPLES[activeTab].title}</h3>
+            <p>{EXAMPLES[activeTab].description}</p>
+            <pre>
+              <code>{EXAMPLES[activeTab].code}</code>
+            </pre>
+          </div>
+        </section>
+      </main>
+    </div>
+  )
 }
 
-export default App;
+export default App
