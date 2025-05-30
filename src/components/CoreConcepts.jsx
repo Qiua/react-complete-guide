@@ -1,6 +1,6 @@
-import "./CoreConcepts.css";
+import './CoreConcepts.css'
 
-export default function CoreConcepts({ image, title = "Title", description }) {
+export default function CoreConcepts({ image, title = 'Title', description }) {
   // Default title to "Title" if not provided
   // Destructuring props to extract img, title, and description
   return (
@@ -9,5 +9,5 @@ export default function CoreConcepts({ image, title = "Title", description }) {
       <h3>{title}</h3>
       <p>{description}</p>
     </li>
-  );
+  )
 }
