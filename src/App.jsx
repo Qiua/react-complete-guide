@@ -49,10 +49,18 @@ function App() {
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleClickTab('components')}>Components</TabButton>
-            <TabButton onSelect={() => handleClickTab('jsx')}>JSX</TabButton>
-            <TabButton onSelect={() => handleClickTab('props')}>Props</TabButton>
-            <TabButton onSelect={() => handleClickTab('state')}>State</TabButton>
+            <TabButton isSelected={activeTab === 'components'} onSelect={() => handleClickTab('components')}>
+              Components
+            </TabButton>
+            <TabButton isSelected={activeTab === 'jsx'} onSelect={() => handleClickTab('jsx')}>
+              JSX
+            </TabButton>
+            <TabButton isSelected={activeTab === 'props'} onSelect={() => handleClickTab('props')}>
+              Props
+            </TabButton>
+            <TabButton isSelected={activeTab === 'state'} onSelect={() => handleClickTab('state')}>
+              State
+            </TabButton>
           </menu>
           <div id='tab-content'>{activeTabContent}</div>
         </section>
