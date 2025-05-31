@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Header /> {/* First component! */}
       <main>
         <section id='core-concepts'>
@@ -64,7 +64,7 @@ function App() {
           <div id='tab-content'>{activeTabContent}</div>
         </section>
       </main>
-    </div>
+    </>
   )
 }
 
