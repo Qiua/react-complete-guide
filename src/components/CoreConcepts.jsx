@@ -1,13 +1,15 @@
-import './CoreConcepts.css'
+import { CORE_CONCEPTS } from '../data'
+import CoreConcept from './CoreConcept'
 
-export default function CoreConcepts({ image, title = 'Title', description }) {
-  // Default title to "Title" if not provided
-  // Destructuring props to extract img, title, and description
+export default function CoreConcepts() {
   return (
-    <li>
-      <img src={image} alt={description}></img>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
+    <section id='core-concepts'>
+      <h2>React Core Concepts</h2>
+      <ul>
+        {CORE_CONCEPTS.map((concept, index) => (
+          <CoreConcept key={index} {...concept} />
+        ))}
+      </ul>
+    </section>
   )
 }
