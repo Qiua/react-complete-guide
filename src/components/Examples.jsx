@@ -31,16 +31,16 @@ export default function Examples() {
     <>
       <Section id='examples' title='Examples'>
         <menu>
-          <TabButton isSelected={activeTab === 'components'} onSelect={() => handleClickTab('components')}>
+          <TabButton isSelected={activeTab === 'components'} onClick={() => handleClickTab('components')}>
             Components
           </TabButton>
-          <TabButton isSelected={activeTab === 'jsx'} onSelect={() => handleClickTab('jsx')}>
+          <TabButton isSelected={activeTab === 'jsx'} onClick={() => handleClickTab('jsx')}>
             JSX
           </TabButton>
-          <TabButton isSelected={activeTab === 'props'} onSelect={() => handleClickTab('props')}>
+          <TabButton isSelected={activeTab === 'props'} onClick={() => handleClickTab('props')}>
             Props
           </TabButton>
-          <TabButton isSelected={activeTab === 'state'} onSelect={() => handleClickTab('state')}>
+          <TabButton isSelected={activeTab === 'state'} onClick={() => handleClickTab('state')}>
             State
           </TabButton>
         </menu>
