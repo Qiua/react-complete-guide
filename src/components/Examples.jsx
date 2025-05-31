@@ -1,18 +1,23 @@
 import { useState } from 'react'
 import { EXAMPLES } from '../data'
 
-import Section from './Section.jsx'
+import Section from './Section'
+import Tabs from './Tabs'
 import TabButton from './TabButton'
 
 export default function Examples() {
   const [activeTab, setActiveTab] = useState()
 
   // If a tab is selected, we will display the corresponding content.
-  let activeTabContent = <p>Please select a topic.</p>
+  let tabContent = (
+    <div id='tab-content'>
+      <p>Please select a topic.</p>
+    </div>
+  )
 
   if (activeTab) {
-    activeTabContent = (
-      <div>
+    tabContent = (
+      <div id='tab-content'>
         <h3>{EXAMPLES[activeTab].title}</h3>
         <p>{EXAMPLES[activeTab].description}</p>
         <pre>
@@ -30,21 +35,26 @@ export default function Examples() {
   return (
     <>
       <Section id='examples' title='Examples'>
-        <menu>
-          <TabButton isSelected={activeTab === 'components'} onClick={() => handleClickTab('components')}>
-            Components
-          </TabButton>
-          <TabButton isSelected={activeTab === 'jsx'} onClick={() => handleClickTab('jsx')}>
-            JSX
-          </TabButton>
-          <TabButton isSelected={activeTab === 'props'} onClick={() => handleClickTab('props')}>
-            Props
-          </TabButton>
-          <TabButton isSelected={activeTab === 'state'} onClick={() => handleClickTab('state')}>
-            State
-          </TabButton>
-        </menu>
-        <div id='tab-content'>{activeTabContent}</div>
+        <Tabs
+          buttons={
+            <>
+              <TabButton isSelected={activeTab === 'components'} onClick={() => handleClickTab('components')}>
+                Components
+              </TabButton>
+              <TabButton isSelected={activeTab === 'jsx'} onClick={() => handleClickTab('jsx')}>
+                JSX
+              </TabButton>
+              <TabButton isSelected={activeTab === 'props'} onClick={() => handleClickTab('props')}>
+                Props
+              </TabButton>
+              <TabButton isSelected={activeTab === 'state'} onClick={() => handleClickTab('state')}>
+                State
+              </TabButton>
+            </>
+          }
+        >
+          {tabContent}
+        </Tabs>
       </Section>
     </>
   )
